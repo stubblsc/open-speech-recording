@@ -1,3 +1,14 @@
+var COUNTS_FOR_WANTED_WORDS = 5;
+var COUNTS_FOR_FILLER_WORDS = 1;
+
+var wantedWords = [
+  'Hello',
+];
+
+var fillerWords = [
+  'World',
+];
+
 // fork getUserMedia for multiple browser versions, for the future
 // when more browsers support MediaRecorder
 
@@ -178,42 +189,6 @@ function visualize(stream) {
   }
 }
 
-var wantedWords = [
-  'Zero',
-  'One',
-  'Two',
-  'Three',
-  'Four',
-  'Five',
-  'Six',
-  'Seven',
-  'Eight',
-  'Nine',
-  'On',
-  'Off',
-  'Stop',
-  'Go',
-  'Up',
-  'Down',
-  'Left',
-  'Right',
-  'Yes',
-  'No',
-];
-
-var fillerWords = [
-  'Dog',
-  'Cat',
-  'Bird',
-  'Tree',
-  'Marvin',
-  'Sheila',
-  'House',
-  'Bed',
-  'Wow',
-  'Happy',
-];
-
 function getRecordedWords() {
   var wordElements = document.querySelectorAll('.clip-label');
   var wordCounts = {};
@@ -230,10 +205,10 @@ function getRecordedWords() {
 function getAllWantedWords() {
   var wordCounts = {};
   wantedWords.forEach(function(word) {
-    wordCounts[word] = 5;
+    wordCounts[word] = COUNTS_FOR_WANTED_WORDS;
   });
   fillerWords.forEach(function(word) {
-    wordCounts[word] = 1;
+    wordCounts[word] = COUNTS_FOR_FILLER_WORDS;
   });
   return wordCounts;
 }

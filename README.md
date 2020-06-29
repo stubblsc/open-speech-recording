@@ -1,33 +1,16 @@
-**Open Speech Recording** is a small web application to collect short snippets
-of speech, and upload them to cloud storage. It's designed to help gather open
-speech data sets to train machine learning systems.
+This is a stripped down version of the [**Open Speech Recording**](https://github.com/petewarden/open-speech-recording) written by Pete Warden, pete@petewarden.com.designed. For the full version that integrates with the google cloud please see the original repository [here](https://github.com/petewarden/open-speech-recording). This version is optimized to run directly on your local machine. Simply update the XXXX file to select the words to record and the amount of times to record each word.
 
-It's based around a small Flask app that will run on Google App Engine. This
-serves up a client-side Javascript app that prompts for a series of words,
-records the audio, and then POSTs the results back to the server.
+The only requirement is to install flask:
+```pip install flask```
 
-## Running
-
-To get started, you'll need to edit app.yaml to point to your own storage bucket
-and update the session key. If you have the Google Cloud SDK set up, you should
-be able to run a local copy with this command:
-
+You can then run the server locally by running:
 ```
-dev_appserver.py app.yaml
+export FLASK_APP=main.py
+python -m flask run
 ```
 
-I've often had trouble getting local copies of the app to work with cloud
-storage, so you may see errors on the final upload stage with this setup. To
-deploy it to an appspot instance, run this:
+Then simply follow the link provided in the terminal to run the application. Note: 1) You will have to give the application permission to use your microphone, 2) We have found that the application works best when **run in a private or icognito window** which avoids any cacheing issues.
 
-```
-gcloud app deploy
-```
+To update the words you are recording and how many recordings of each word you are collecting, change the counts and values at the top of: ```static/scripts/app.js```.
 
-## Credits
-
-Thanks to the Mozilla team for the [Web Dictaphone sample application](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API#A_sample_application_Web_Dictaphone)
-that I used as a starting point, [Sole](https://soledadpenades.com/) for the
-oscilloscope, and the Flask team for a lovely Python microframework!
-
-Written by Pete Warden, pete@petewarden.com.
+Adapted by the CS249r F2020 team.

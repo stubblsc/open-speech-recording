@@ -1,0 +1,3 @@
+[submodule "extract_loudest_section"]
+	path = extract_loudest_section
+	url = https://github.com/petewarden/extract_loudest_section

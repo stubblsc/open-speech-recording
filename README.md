@@ -1,4 +1,4 @@
-This is a stripped down version of the [**Open Speech Recording**](https://github.com/petewarden/open-speech-recording) written by Pete Warden that has been design to use only local memory. If you'd like a more robust version that you want to share with others to aid in your data collection (and therefore use a google storage buckets which may cost some money) please see [Pete's original project](https://github.com/petewarden/open-speech-recording). You can setup and use our version of the app as follows.
+This is a stripped down version of the [**Open Speech Recording**](https://github.com/petewarden/open-speech-recording) written by Pete Warden. For the full version that integrates with the google cloud please see the original repository. This version is optimized to run directly on your local machine. This repository also contains scripts written by Pete to manipulate the audio files that come out of the app.  You can use the app and these scripts by taking the following steps:
 
 1. Clone the repository and install the only requirement, flask:
   ```
@@ -7,7 +7,6 @@ This is a stripped down version of the [**Open Speech Recording**](https://githu
   git submodule update --init --recursive
   pip install flask
   ```
-
 2. To update the words you are recording and how many recordings of each word you are collecting, change the counts and values at the top of the app file in the open-speech-recording repository: ```open-speech-recording/static/scripts/app.js```. The default is 5 copies of each wake word (in this case just "hello") and 1 copy of each other/unknown/filler word (in this case just "world"). You can then run the server locally (from within the open-speech-recording folder) by running:
   ```
   export FLASK_APP=main.py
@@ -36,4 +35,4 @@ This is a stripped down version of the [**Open Speech Recording**](https://githu
   zip -r my_dataset.zip *
   ```
 
--Adapted by the CS249r F2020 team
+-Adapted by the Harvard CS249r F2020 team

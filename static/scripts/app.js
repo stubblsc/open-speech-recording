@@ -1,24 +1,25 @@
+// --------------------------------------------//
+// CHANGE THESE VALUS AND LISTS FOR THE WANTED //
+//         AND FILLER WORDS YOU WANT TO RECORD //
+// --------------------------------------------//
 var COUNTS_FOR_WANTED_WORDS = 5;
 var COUNTS_FOR_FILLER_WORDS = 1;
-
 var wantedWords = [
   'Hello',
 ];
-
 var fillerWords = [
   'World',
 ];
+// --------------------------------------------//
 
 // fork getUserMedia for multiple browser versions, for the future
 // when more browsers support MediaRecorder
-
 navigator.getUserMedia = ( navigator.getUserMedia ||
                        navigator.webkitGetUserMedia ||
                        navigator.mozGetUserMedia ||
                        navigator.msGetUserMedia);
 
 // set up basic variables for app
-
 var record = document.querySelector('.record');
 var stop = document.querySelector('.stop');
 var upload = document.querySelector('.upload');
@@ -29,17 +30,14 @@ var mediaStreamSource = null;
 var ignoreAutoPlay = false;
 
 // disable stop button while not recording
-
 stop.disabled = true;
 upload.disabled = true;
 
 // visualiser setup - create web audio api context and canvas
-
 var audioCtx = new (window.AudioContext || webkitAudioContext)();
 var canvasCtx = canvas.getContext("2d");
 
 //main block for doing the audio recording
-
 if (navigator.getUserMedia) {
   console.log('getUserMedia supported.');
 
@@ -57,14 +55,14 @@ if (navigator.getUserMedia) {
       progress.innerText = "3";
       document.querySelector('.info-display').innerText = "";
       setTimeout(function() {
-	  progress.innerText = "2";
-	  setTimeout(function() {
-	      progress.innerText = "1";
-	      setTimeout(function() {
-		  progress.innerText = "";
-		  startRecording();
-	      }, 1000);
-	  }, 1000);
+    	  progress.innerText = "2";
+    	  setTimeout(function() {
+    	      progress.innerText = "1";
+    	      setTimeout(function() {
+    		      progress.innerText = "";
+    		      startRecording();
+    	        }, 1000);
+    	  }, 1000);
       }, 1000);
       stop.disabled = false;
       record.disabled = true;
@@ -306,8 +304,8 @@ function endRecording() {
 }
 
 function promptToSave() {
-  if (confirm('Are you ready to upload your words?\nIf not, press cancel now,' + 
-	      ' and then press Upload once you are ready.')) {
+  if (confirm('Are you ready to download your data?\nIf not, press cancel now,' + 
+	      ' and then press Download once you are ready.')) {
     saveRecordings();
   }
   upload.disabled = false;
@@ -324,7 +322,7 @@ function saveRecordings() {
 }
 
 function uploadNextClip() {
-  document.querySelector('.progress-display').innerText = 'Uploading clip ' + 
+  document.querySelector('.progress-display').innerText = 'Downloading clip ' + 
 	clipIndex + '/' + unrollWordCounts(getAllWantedWords()).length;
   var clip = allClips[clipIndex];
   clip.style.display = 'None';
@@ -350,7 +348,7 @@ function uploadNextClip() {
 	      allDone();
 	    }
           } else {
-            alert('Uploading failed with error code ' + ajaxRequest.status);
+            alert('Downloading failed with error code ' + ajaxRequest.status);
           }
 	}
       };

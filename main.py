@@ -16,17 +16,9 @@ app = Flask(__name__)
 def welcome():
     session_id = request.cookies.get('session_id')
     if session_id:
-        all_done = request.cookies.get('all_done')
-        if all_done:
-            return render_template("thanks.html")
-        else:
-            return render_template("record.html")
+        return render_template("record.html")
     else:
         return render_template("welcome.html")
-
-@app.route("/legal")
-def legal():
-    return render_template("legal.html")
 
 @app.route("/start")
 def start():

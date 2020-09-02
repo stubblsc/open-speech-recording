@@ -36,7 +36,7 @@ Note: if you want to change the words or counts make sure to kill and re-start t
   make -C extract_loudest_section/
   /tmp/extract_loudest_section/gen/bin/extract_loudest_section 'wavs/*.wav' trimmed_wavs/
   ```
-3. Finally we can create the directory structure expected by the Tensorflow training script by running another of Pete's scripts adn then compress it into a zip file so it can be easily uploaded to Colab.
+3. Finally you can create the directory structure expected by the Tensorflow training script by running another of Pete's scripts adn then compress it into a zip file so it can be easily uploaded to Colab.
   ```
   python organize_wavs.py
   cd output_wavs

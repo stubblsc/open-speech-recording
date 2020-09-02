@@ -1,10 +1,10 @@
-###Open Speech Recording
+### Open Speech Recording
 
 This is a stripped down version of the [**Open Speech Recording**](https://github.com/petewarden/open-speech-recording) written by Pete Warden. For the full version that integrates with the google cloud please see the original repository. This version is optimized to run directly on your local machine. This repository also contains scripts written by Pete to manipulate the audio files that come out of the app.  
 
-###You can use the app by taking the following steps:
+### You can use the app by taking the following steps:
 
-1. Clone the repository and install the only requirement, flask:
+1. Clone the repository, initialize the submodules, and install the only requirement, flask:
   ```
   git clone https://github.com/tinyMLx/open-speech-recording.git
   cd open-speech-recording
@@ -21,7 +21,7 @@ This is a stripped down version of the [**Open Speech Recording**](https://githu
 
 Note: if you want to change the words or counts recorded make sure to kill and re-start the app and open the link in a new incognito window!
 
-###You can use the scripts to manipulate the data as follows:
+### You can use the scripts to manipulate the data as follows:
 
 1. You now have a large collection of ```.ogg``` files in your directory. We now need to convert them to ```.wav``` files using ```ffmpeg```:
   ```
